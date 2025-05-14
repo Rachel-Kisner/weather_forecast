@@ -1,30 +1,26 @@
-// "use client"
-
-// ייבוא הספריות והרכיבים הנדרשים
-import { useState, useEffect, useMemo, useCallback } from "react" // הוקים לניהול מצב, מחזור חיים ומיטוב ביצועים
+import { useState, useEffect, useMemo, useCallback } from "react" 
 import {
-  StyleSheet, // לעיצוב הרכיבים
-  Text, // להצגת טקסט
-  View, // מכיל רכיבים אחרים (כמו div ב-HTML)
-  TextInput, // שדה קלט טקסט
-  TouchableOpacity, // אזור לחיץ עם אפקט שקיפות
-  ImageBackground, // תמונת רקע
-  ActivityIndicator, // אנימציית טעינה
-  Alert, // להצגת התראות
-  ScrollView, // מאפשר גלילת תוכן
-  KeyboardAvoidingView, // מזיז תוכן כשהמקלדת פתוחה
-  Platform, // מזהה את הפלטפורמה (iOS/Android)
-  Dimensions, // מספק מידות של המסך
+  StyleSheet, 
+  Text, 
+  View, 
+  TextInput, 
+  TouchableOpacity, 
+  ImageBackground,
+  ActivityIndicator,
+  Alert, 
+  ScrollView,
+  KeyboardAvoidingView, 
+  Platform, 
+  Dimensions, 
 } from "react-native"
-import { SafeAreaView } from "react-native-safe-area-context" // מבטיח שהתוכן לא יחפוף עם אלמנטי מערכת
-import { Feather, MaterialCommunityIcons } from "@expo/vector-icons" // סמלים
-import AsyncStorage from "@react-native-async-storage/async-storage" // אחסון מקומי
-import * as Location from "expo-location" // לקבלת מיקום נוכחי
-import NetInfo from "@react-native-community/netinfo" // לבדיקת חיבור לאינטרנט
-import WeatherList from "../components/WeatherList" // רכיב מותאם אישית להצגת רשימת מזג אוויר
-import { fetchWeatherData, fetchForecastData } from "../services/WeatherService" // פונקציות לקבלת נתוני מזג אוויר
+import { SafeAreaView } from "react-native-safe-area-context" 
+import { Feather, MaterialCommunityIcons } from "@expo/vector-icons" 
+import AsyncStorage from "@react-native-async-storage/async-storage" 
+import * as Location from "expo-location" 
+import NetInfo from "@react-native-community/netinfo" 
+import WeatherList from "../components/WeatherList" 
+import { fetchWeatherData, fetchForecastData } from "../services/WeatherService" 
 
-// קבלת מידות המכשיר לעיצוב רספונסיבי
 const { width, height } = Dimensions.get("window")
 
 // מפתח מטמון עבור נתוני מזג אוויר
